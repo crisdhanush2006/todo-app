@@ -24,6 +24,13 @@ function createTaskElement(taskText, isDone) {
         li.classList.toggle("done");
         saveTasks();
     };
+    span.ondblclick = function() {
+        const newText = prompt("Edit task:", span.textContent);
+        if (newText !== null && newText.trim() !== "") {
+            span.textContent = newText.trim();
+            saveTasks();
+        }
+    };
 
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "Delete";
