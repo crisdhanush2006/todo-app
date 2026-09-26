@@ -55,7 +55,25 @@ button:hover {
 #taskCount {
     color: #666;
     font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.filters {
+    display: flex;
+    gap: 8px;
     margin-bottom: 15px;
+}
+
+.filter-btn {
+    background: #e0e0e0;
+    color: #333;
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.filter-btn.active {
+    background: #4CAF50;
+    color: white;
 }
 
 ul {
@@ -75,6 +93,10 @@ li {
 li.done {
     text-decoration: line-through;
     color: gray;
+}
+
+li.hidden {
+    display: none;
 }
 
 .delete-btn {

@@ -52,7 +52,24 @@ function saveTasks() {
 
 function updateCount() {
     const remaining = document.querySelectorAll("#taskList li:not(.done)").length;
-    document.getElementById("taskCount").textContent = remaining + " tasks left";
+    const taskWord = remaining === 1 ? "task" : "tasks";
+    document.getElementById("taskCount").textContent = remaining + " " + taskWord + " left";
+}
+
+function filterTasks(type) {
+    document.querySelectorAll(".filter-btn").forEach(btn => btn.classList.remove("active"));
+    event.target.classList.add("active");
+
+    document.querySelectorAll("#taskList li").forEach(li => {
+        const isDone = li.classList.contains("done");
+        if (type === "all") {
+            li.classList.remove("hidden");
+        } else if (type === "active") {
+            li.classList.toggle("hidden", isDone);
+        } else if (type === "done") {
+            li.classList.toggle("hidden", !isDone);
+        }
+    });
 }
 
 function loadTasks() {
