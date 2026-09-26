@@ -1,4 +1,3 @@
-// Load tasks when page opens
 document.addEventListener("DOMContentLoaded", loadTasks);
 
 function addTask() {
@@ -48,9 +47,16 @@ function saveTasks() {
         });
     });
     localStorage.setItem("tasks", JSON.stringify(tasks));
+    updateCount();
+}
+
+function updateCount() {
+    const remaining = document.querySelectorAll("#taskList li:not(.done)").length;
+    document.getElementById("taskCount").textContent = remaining + " tasks left";
 }
 
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.forEach(task => createTaskElement(task.text, task.done));
+    updateCount();
 }

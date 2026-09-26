@@ -29,7 +29,7 @@ h1 {
 .input-box {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 #taskInput {
@@ -50,6 +50,12 @@ button {
 
 button:hover {
     background: #45a049;
+}
+
+#taskCount {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 15px;
 }
 
 ul {
